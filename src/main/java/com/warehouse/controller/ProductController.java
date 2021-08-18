@@ -68,7 +68,7 @@ public class ProductController {
 			productService.saveProducts(products.getProductList());
 		
 		logger.info("Successfully imported articles in the Inventory Collection");
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
 	/*

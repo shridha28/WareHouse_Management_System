@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -34,24 +35,24 @@ import com.warehouse.exception.InvalidJsonFileException;
 @SpringBootTest(classes = WmsApplication.class)
 @RunWith(SpringRunner.class)
 @ActiveProfiles({ "test" })
-public class ProductsControllerTest {
+class ProductsControllerTest {
 
 	private MockMvc mockMvc;
 	
 	@Autowired
-	MongoTemplate mongoTemplate;
+	private MongoTemplate mongoTemplate;
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
 
 	@BeforeEach
-	public void setUp() {
+	void setUp() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 
 	
 	@Test
-	public void testImportProducts() throws Exception {
+	void testImportProducts() throws Exception {
 		Resource fileResource = new ClassPathResource("products.json");
 
 		MockMultipartFile firstFile = new MockMultipartFile("file", fileResource.getFilename(),
@@ -61,13 +62,13 @@ public class ProductsControllerTest {
 	}
 	
 	@Test
-	public void testGetProducts() throws Exception {
+	void testGetProducts() throws Exception {
 		mockMvc.perform(get("/api/products"))
 		 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 	}
 	
 	@Test
-	public void testGetProductsEmptyCollection() throws Exception {
+	void testGetProductsEmptyCollection() throws Exception {
 		mongoTemplate.remove(new Query(),"Products");
 		mockMvc.perform(get("/api/products"))
 		 .andExpect(content().json("[]"));
@@ -84,5 +85,6 @@ public class ProductsControllerTest {
 				.andExpect(status().is4xxClientError())
 				.andExpect(result -> assertTrue(result.getResolvedException() instanceof InvalidJsonFileException));
 	}
+	
 	
 }

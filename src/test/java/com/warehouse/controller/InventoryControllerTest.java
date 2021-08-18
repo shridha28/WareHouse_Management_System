@@ -45,13 +45,13 @@ public class InventoryControllerTest {
 	private WebApplicationContext webApplicationContext;
 
 	@BeforeEach
-	public void setUp() {
+	void setUp() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 
 	
 	@Test
-	public void testImportArticles() throws Exception {
+	void testImportArticles() throws Exception {
 		Resource fileResource = new ClassPathResource("inventory.json");
 
 		MockMultipartFile firstFile = new MockMultipartFile("file", fileResource.getFilename(),
@@ -61,13 +61,13 @@ public class InventoryControllerTest {
 	}
 	
 	@Test
-	public void testGetArticles() throws Exception {
+	void testGetArticles() throws Exception {
 		mockMvc.perform(get("/api/articles"))
 		 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 	}
 	
 	@Test
-	public void testGetArticlesEmptyCollection() throws Exception {
+	void testGetArticlesEmptyCollection() throws Exception {
 		mongoTemplate.remove(new Query(),"Inventory");
 		mockMvc.perform(get("/api/articles"))
 		 .andExpect(content().json("[]"));
@@ -75,7 +75,7 @@ public class InventoryControllerTest {
 	
 	
 	@Test
-	public void testImportArticlesWithIncorrectProperty() throws Exception {
+	void testImportArticlesWithIncorrectProperty() throws Exception {
 		Resource fileResource = new ClassPathResource("inv_incorrectproperty.json");
 
 		MockMultipartFile firstFile = new MockMultipartFile("file", fileResource.getFilename(),

@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.warehouse.dao.model.PArticleDao;
-import com.warehouse.dao.model.ProductDao;
 import com.warehouse.model.PArticleModel;
 
 /**

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="LOGS" value="C:/IKEA/mongodb/Logs" />
+    <property name="LOGS" value="${LOG_FILE_PATH}" />
 
     <appender name="Console"
         class="ch.qos.logback.core.ConsoleAppender">

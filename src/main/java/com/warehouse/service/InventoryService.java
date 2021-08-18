@@ -43,12 +43,14 @@ public class InventoryService {
 	*/
 	public void saveArticles(List<IArticleModel> listOfArticles) {
 
+     logger.debug("Saving articles in Inventory collection");
 		listOfArticles.forEach(article -> {
 			Optional<ArticleDao> articleDao = inventoryRepository.findById(article.getArtId());
 			if (articleDao.isPresent())
 				article.setStock(article.getStock() + articleDao.get().getStock());
 			inventoryRepository.save(mapper.convertToDao(article));
 		});
+	 logger.info("Saved articles in Inventory Collection");	
 	}
 	
    /*
@@ -64,6 +66,8 @@ public class InventoryService {
 		for(ArticleDao articleDao : articlesDaoList) {
 			articles.add(mapper.convertToModel(articleDao));
 		}
+		
+	  logger.info("Successfully retrieved articles from Inventory Collection.");		
 	  return articles;
 	}
 

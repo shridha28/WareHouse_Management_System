@@ -19,7 +19,7 @@ import com.warehouse.repo.InventoryRepository;
 @SpringBootTest(classes = WmsApplication.class)
 @RunWith(SpringRunner.class)
 @ActiveProfiles({ "test" })
-public class InventoryRepoTest {
+class InventoryRepoTest {
 
 	
 	@Autowired
@@ -27,7 +27,7 @@ public class InventoryRepoTest {
 	
 
     @BeforeEach
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
     	
     	inventoryRepository.save(ArticleDao.builder().id("1")
     			.name("WindowSheet")
@@ -39,21 +39,21 @@ public class InventoryRepoTest {
 	
 
     @Test
-    public void findAllshouldBeNotEmpty() {
+    void findAllshouldBeNotEmpty() {
         assertFalse(inventoryRepository.findAll().isEmpty());
     }
     
     @Test
-    public void findByIdShouldNotEmpty() {
+    void findByIdShouldNotEmpty() {
         assertFalse(inventoryRepository.findById("1").isEmpty());
-        assertEquals(inventoryRepository.findById("1").get().getId(), "1");
-        assertEquals(inventoryRepository.findById("1").get().getName(), "WindowSheet");
-        assertEquals(inventoryRepository.findById("1").get().getStock(), 200);
+        assertEquals("1", inventoryRepository.findById("1").get().getId());
+        assertEquals("WindowSheet",inventoryRepository.findById("1").get().getName());
+        assertEquals(200,inventoryRepository.findById("1").get().getStock());
     }
     
     
     @Test
-    public void findByIdShouldBeEmpty() {
+    void findByIdShouldBeEmpty() {
         assertTrue(inventoryRepository.findById("17").isEmpty());
     }
 }

@@ -22,7 +22,7 @@ import com.warehouse.model.IArticleModel;
 @SpringBootTest(classes = WmsApplication.class)
 @RunWith(SpringRunner.class)
 @ActiveProfiles({ "test" })
-public class InventoryServiceTest {
+class InventoryServiceTest {
 
 	
 	@Autowired
@@ -34,7 +34,7 @@ public class InventoryServiceTest {
 	List<IArticleModel> articles;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
     	 articles = 
     			Arrays.asList(IArticleModel.builder()
     					                    .artId("78").name("WardrobeDoors").stock(10).build(),
@@ -45,25 +45,25 @@ public class InventoryServiceTest {
     }
 
     @Test 
-    public void testArticlesDoNotExistInDb() {
-    	assertEquals(inventoryService.getArticles().size(),2);
+    void testArticlesDoNotExistInDb() {
+    	assertEquals(2,inventoryService.getArticles().size());
     	List<IArticleModel> articles = inventoryService.getArticles();
-    	assertEquals(articles.get(0).getStock(),10);
-    	assertEquals(articles.get(1).getStock(),25);
+    	assertEquals(10,articles.get(0).getStock());
+    	assertEquals(25,articles.get(1).getStock());
     }
    
     
     @Test 
-    public void testArticlesExistInDb() {
+    void testArticlesExistInDb() {
     	inventoryService.saveArticles(articles);
     	assertEquals(inventoryService.getArticles().size(),2);
     	List<IArticleModel> articles = inventoryService.getArticles();
-    	assertEquals(articles.get(0).getStock(),20);
-    	assertEquals(articles.get(1).getStock(),50);
+    	assertEquals(20,articles.get(0).getStock());
+    	assertEquals(50,articles.get(1).getStock());
     }
     
     @Test 
-    public void testNoArticlesInDb() {
+    void testNoArticlesInDb() {
     	mongoTemplate.remove(new Query(),"Inventory");
     	assertEquals(inventoryService.getArticles().size(),0);
     }

@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.warehouse.model.PArticleModel;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
