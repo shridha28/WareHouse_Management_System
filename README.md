@@ -1,8 +1,8 @@
-# WareHouse_Management_System
-Dockerized SpringBoot Application for WareHouse Management System. It exposes APIs for storing and retrieving products and product articles (Inventory).
+# WareHouse_Management_System [![CI Workflow for WMS](https://github.com/shridha28/WareHouse_Management_System/actions/workflows/CI_Workflow.yml/badge.svg?branch=master)](https://github.com/shridha28/WareHouse_Management_System/actions/workflows/CI_Workflow.yml)
+This repository contains dockerized springBoot application for WareHouse Management System. It contains APIs to store, retrive products and its relevant articles in the Inventory.
 
 ## Introduction
-The WMS (Warehouse Management System) is an application developed in SpringBoot and java to persist products and articles required for the products using MongoDB. It is mainly a backend application and exposes apis to execute CRUD operations on Products and Inventory (Articles).
+WMS (Warehouse Management System) is an application developed in SpringBoot and java to maintain inventory of articles and products using MongoDB. It is a backend application and provides apis to execute CRUD operations on Products and Inventories (Articles).
 
 ## Technologies
 -Spring Boot <br />
@@ -10,6 +10,7 @@ The WMS (Warehouse Management System) is an application developed in SpringBoot 
 -Mongo DB <br />
 -Swagger UI <br />
 -Sonar Qube for Code Analysis <br />
+-Docker <br />
 
 ## APIs
 

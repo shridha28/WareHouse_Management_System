@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.warehouse.exception.InvalidJsonFileException;
 import com.warehouse.model.Product;
@@ -67,7 +65,7 @@ public class ProductController {
 			productService.saveProducts(products.getProductList());
 		
 		logger.info("Successfully imported products");
-		return new ResponseEntity<String>("Successfully imported Products",HttpStatus.CREATED);
+		return new ResponseEntity<>("Successfully imported Products",HttpStatus.CREATED);
 	}
 
 	/*
