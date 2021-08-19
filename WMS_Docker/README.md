@@ -6,22 +6,22 @@ This folder contains
 - In order to install mongodb on your local, follow the below instructions:
 To locally install mongodb, follow the link - https://docs.mongodb.com/guides/server/install/
  Run the following commands
-  a) show dbs -> Displays databases.
-  b) use admin -> Selects database admin
-  c) db.createUser(
-  {
-    user: 'admin',
-    pwd: passwordPrompt(),
-    roles: [ "userAdminAnyDatabase","dbAdminAnyDatabase", "readWriteAnyDatabase" ]
-   }
-  ); -> create a user
-  d) use wmsdb -> creates database for dev profile
-  e) use wmsdbtest -> creates database for test profile
+  a) show dbs -> Displays databases <br />
+  b) use admin -> Selects database admin <br /> 
+  c) db.createUser(    <br />
+  {   <br />
+    user: 'admin',  <br />
+    pwd: passwordPrompt(),  <br />
+    roles: [ "userAdminAnyDatabase","dbAdminAnyDatabase", "readWriteAnyDatabase" ] <br />
+   } <br />
+  ); -> create a user  <br />
+  d) use wmsdb -> creates database for dev profile <br />
+  e) use wmsdbtest -> creates database for test profile <br />
   
-- Clone the repository
-- Update the application.properties and application-test.properties with username and creds.
-- Run the command -> mvn install and a jar will be created in the target folder.
-- Run the jar using command -> java -jar WMS-1.0.0.jar
+- Clone the repository <br />
+- Update the application.properties and application-test.properties with username and creds.  <br />
+- Run the command -> mvn install and a jar will be created in the target folder.  <br />
+- Run the jar using command -> java -jar WMS-1.0.0.jar  <br />
  
   
 2. docker-compose - This is used to bring up all containers which include springboot application, mongodb container with the necessary user creds and permissions, swagger container to test the api. This is the easiest way to run the application.
