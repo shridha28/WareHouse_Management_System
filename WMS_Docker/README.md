@@ -5,7 +5,7 @@ This folder contains
 
 - In order to install mongodb on your local, follow the below instructions:
 To locally install mongodb, follow the link - https://docs.mongodb.com/guides/server/install/
- Run the following commands
+ Run the following commands <br />
   a) show dbs -> Displays databases <br />
   b) use admin -> Selects database admin <br /> 
   c) db.createUser(    <br />
