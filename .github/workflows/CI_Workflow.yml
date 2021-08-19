@@ -18,6 +18,6 @@ jobs:
         with:
           java-version: 11.0.4
       - name: Maven Package
-        run: mvn -B clean package -DskipTests
+        run: mvn -B clean package -Dmaven.test.skip=true
       - name: Maven Verify
-        run: mvn -B clean verify
+        run: mvn -B clean verify -Dmaven.test.skip=true
