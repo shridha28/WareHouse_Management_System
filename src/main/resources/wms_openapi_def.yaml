@@ -1,0 +1,114 @@
+openapi: 3.0.0
+servers:
+  - url: http://localhost:8080
+info:
+  description: 'This swagger definition exposes the apis for Warehouse Management Sytem. The apis include CRUD operations for Inventory and Products.'
+  version: 1.0.0
+  title: Warehouse Management System
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: shridha.jalihal@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+tags:
+  - name: Products CRUD Operations
+    description: Endpoints to import, retrieve and delete products
+  - name: Inventory CRUD Operations
+    description: Endpoints to import and retrieve articles
+paths:
+  /api/products:
+    get: 
+      tags:
+         - Products CRUD Operations
+      summary: Get all the products
+      description: Returns all the products
+      operationId: getAllProducts
+      responses:
+        '200':
+          description: successfully retrieved the products
+    post:
+      tags:
+         - Products CRUD Operations
+      summary: Import products from a json file
+      description: ''
+      operationId: importProducts
+      requestBody:
+        content: 
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+               file:
+                type: string
+                format: binary
+      responses:
+        '200':
+          description: Successfully imported Products
+        '400':
+          description: Incorrect Json File uploaded
+  /api/products/{productId}:
+    delete:
+      tags:
+         - Products CRUD Operations
+      summary: Delete a product with productId
+      parameters:
+        - in: path
+          name: productId
+          schema:
+            type: string
+          required: true
+      description: ''
+      operationId: deleteProduct
+      responses:
+        '200':
+          description: Successfully deleted the product
+        '400':
+          description: Product With Id {productId} does not exist
+    get:
+      tags:
+         - Products CRUD Operations
+      summary: Get product details with productId
+      parameters:
+        - in: path
+          name: productId
+          schema:
+            type: string
+          required: true
+      description: ''
+      operationId: getProduct
+      responses:
+        '200':
+          description: Successfully retrieved the product
+        '400':
+          description: Product With Id {productId} does not exist      
+  /api/articles:
+    get: 
+      tags:
+         - Inventory CRUD Operations
+      summary: Get all the articles
+      description: Returns all the articles
+      operationId: getAllArticles
+      responses:
+        '200':
+          description: successful operation
+    post:
+      tags:
+         - Inventory CRUD Operations
+      summary: Import articles from a json file
+      description: ''
+      operationId: importArticles
+      requestBody:
+        content: 
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+               file:
+                type: string
+                format: binary
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid tag value

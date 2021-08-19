@@ -14,8 +14,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 /**
+ * Custom LogInterceptor for incoming requests.
+ * 
  * @author Shridha S Jalihal
- *
  */
 @Component
 public class LogRequestInterceptor implements HandlerInterceptor {
