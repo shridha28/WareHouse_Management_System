@@ -37,4 +37,4 @@ Steps to run the application
   - wmsdbtest for test profile
 3) Update the application.properties and application-test.properties with username and password
 4) Run mvn install . A jar will be created in the target folder.
-5) Run the jar using command -> java -jar <jarfilename>.jar
+5) Run the jar using command -> java -jar WMS-1.0.0.jar
