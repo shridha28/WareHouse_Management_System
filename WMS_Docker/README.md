@@ -1,4 +1,4 @@
-Docker readme
+**Docker readme
 
 This folder contains 
 1. Dockerfile - which is used to build the spring boot application. This can also be used as a standalone application but will still need mongo db on your local host machine to work
