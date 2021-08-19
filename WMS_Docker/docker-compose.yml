@@ -1,0 +1,45 @@
+version: "3.5"
+
+services:
+  mongodb:
+    container_name: mongo_dev
+    image: mongo:latest
+    volumes:
+      - ./mongo-db-data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootDBUser
+      - MONGO_INITDB_ROOT_PASSWORD=P@ssw0rd
+      - MONGO_INITDB_DATABASE=wmsprodDB   
+    ports:
+      - 27018:27017
+    networks:
+      - dev
+
+  wmsapp:
+    container_name: wmsapp
+    image: shridha/wmsapp:0.0.19
+    volumes:
+      - ./productionLogs:/opt/app/logs
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - LOG_FILE_PATH=logs
+    ports:
+      - 8080:8080
+    networks:
+      - dev
+      
+  swagger:
+    container_name: swaggerui
+    image: swaggerapi/swagger-ui
+    volumes:
+      - ./swaggerfile:/mnt
+    environment:
+      - SWAGGER_JSON=/mnt/wms.yaml
+    ports:
+    - 8083:8080
+    networks:
+      - dev    
+networks:
+  dev:
+    name: dev
+    driver: bridge
