@@ -24,7 +24,7 @@ public class WmsAppConfig implements WebMvcConfigurer {
 	 @Override
 	 public void addInterceptors(InterceptorRegistry registry) {
 	  registry.addInterceptor(logRequestInterceptor)
-	   .addPathPatterns("/api/**");;
+	   .addPathPatterns("/api/**");
 	 }
 
 }
