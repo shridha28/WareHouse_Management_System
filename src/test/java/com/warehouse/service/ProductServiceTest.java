@@ -71,7 +71,6 @@ class ProductServiceTest {
     	assertNotNull(products.get(0).getArticles());
     	assertNotNull(products.get(0).getArticles().get(0).getAvailabilty());
     	assertNotNull(products.get(0).getArticles().get(0).getArtId());
-    	assertNotNull(products.get(0).getArticles().get(0).getAmountOf());
     }
    
     

@@ -53,8 +53,7 @@ public class ProductController {
 	 * @throws InvalidJsonFileException if file is incorrect.
 	 */
 	@PostMapping(path = "/api/products")
-	public ResponseEntity<String> importProducts(@RequestParam("file") MultipartFile file)
-			throws JsonParseException, JsonMappingException, IOException {
+	public ResponseEntity<String> importProducts(@RequestParam("file") MultipartFile file) {
 
 		Products products = null;
 		try {
