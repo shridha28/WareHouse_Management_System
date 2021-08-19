@@ -53,7 +53,7 @@ public class ProductController {
 	 * @throws InvalidJsonFileException if file is incorrect.
 	 */
 	@PostMapping(path = "/api/products")
-	public  ResponseEntity<Void> importProducts(@RequestParam("file") MultipartFile file)
+	public ResponseEntity<String> importProducts(@RequestParam("file") MultipartFile file)
 			throws JsonParseException, JsonMappingException, IOException {
 
 		Products products = null;
@@ -67,8 +67,8 @@ public class ProductController {
 		if(products!=null)
 			productService.saveProducts(products.getProductList());
 		
-		logger.info("Successfully imported articles in the Inventory Collection");
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		logger.info("Successfully imported products");
+		return new ResponseEntity<String>("Successfully imported Products",HttpStatus.CREATED);
 	}
 
 	/*
@@ -83,14 +83,23 @@ public class ProductController {
 
 
 	/*
-	 * End Point to get delete(sell) a product and update stocks of the articles
+	 * End Point to get delete(sell) a product and update stock of the articles
 	 * 
 	 * @return ResponseEntity with no body
 	 */
 	@DeleteMapping(path = "/api/products/{productId}")
-	public ResponseEntity<Void> deleteProduct(@PathVariable String productId)  {
+	public ResponseEntity<String> deleteProduct(@PathVariable String productId)  {
 		 productService.deleteProduct(productId);
-		 return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		 return new ResponseEntity<String>("Successfully deleted the product.",HttpStatus.OK);
 	}
 
+	/*
+	 * End Point to get a product with productId
+	 * 
+	 * @return product of type Product
+	 */
+	@GetMapping(path = "/api/products/{productId}")
+	public Product getProduct(@PathVariable String productId)  {
+		 return productService.getProduct(productId);
+	}
 }

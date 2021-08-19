@@ -4,8 +4,9 @@
 package com.warehouse.exception;
 
 /**
+ * Runtime InvalidJsonFileException for file parsing exceptions
+ * 
  * @author sjalihal
- *
  */
 public class InvalidJsonFileException extends RuntimeException {
 

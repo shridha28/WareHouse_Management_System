@@ -39,10 +39,42 @@
 	</springProfile>
 	
 	<springProfile name="!prod">
-   		 <logger name="com.warehouse" level="error" additivity="false">
+   		 <logger name="com.warehouse" level="debug" additivity="false">
         	<appender-ref ref="RollingFile" />
         	<appender-ref ref="Console" />
     	</logger>
     </springProfile>
 
+   <springProfile name="!prod">
+   		 <logger name="org.mongodb" level="error" additivity="false">
+        	<appender-ref ref="RollingFile" />
+        	<appender-ref ref="Console" />
+    	</logger>
+    </springProfile>
+    
+     <springProfile name="!prod">
+   		 <logger name="org.springframework" level="error" additivity="false">
+        	<appender-ref ref="RollingFile" />
+        	<appender-ref ref="Console" />
+    	</logger>
+    </springProfile>
+    
+    <springProfile name="prod">
+   		 <logger name="com.warehouse" level="error" additivity="false">
+        	<appender-ref ref="RollingFile" />
+    	</logger>
+    </springProfile>
+
+   <springProfile name="prod">
+   		 <logger name="org.mongodb" level="error" additivity="false">
+        	<appender-ref ref="RollingFile" />
+    	</logger>
+    </springProfile>
+   
+   <springProfile name="prod">
+   		 <logger name="org.springframework" level="error" additivity="false">
+        	<appender-ref ref="RollingFile" />
+    	</logger>
+    </springProfile> 
+    
 </configuration>

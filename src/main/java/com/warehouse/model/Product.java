@@ -1,5 +1,6 @@
 package com.warehouse.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,6 +20,9 @@ public class Product {
 	
 	
 	private String id;
+	
+	@JsonProperty("price")
+	private BigDecimal price;
 		
 	@JsonProperty("name")
 	private String name;

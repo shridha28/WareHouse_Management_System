@@ -13,4 +13,4 @@ COPY ${JAR_FILE} app.jar
 COPY ${CONFIG_FILE} application-prod.properties
 
 # java -jar /opt/app/app.jar
-ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","app.jar","-spring.config.location","file:///opt/app/application-prod.properties"]
+ENTRYPOINT ["java","-jar","app.jar"]

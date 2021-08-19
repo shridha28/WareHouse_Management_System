@@ -47,7 +47,7 @@ public class InventoryController {
 	* @throws IOException if reading the file fails.
 	*/
 	@PostMapping(path = "/api/articles")
-	public ResponseEntity<Void> importArticles(@RequestParam("file") MultipartFile file) {
+	public ResponseEntity<String> importArticles(@RequestParam("file") MultipartFile file) {
 
 		Inventory inventory = null;
 		try {
@@ -61,7 +61,7 @@ public class InventoryController {
 		  inventoryService.saveArticles(inventory.getInventory());
 		
 		logger.info("Successfully imported articles in the Inventory Collection");
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		return new ResponseEntity<String>("Successfully imported articles into the inventory.",HttpStatus.CREATED);
 	}
 
    /*

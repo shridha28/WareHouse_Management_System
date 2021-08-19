@@ -74,7 +74,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	 * 
 	 * @param String message
 	 * 
-	 * @param HttpStatus message
+	 * @param HttpStatus httpStatus
 	 * 
 	 * @param WebRequest request
 	 * 

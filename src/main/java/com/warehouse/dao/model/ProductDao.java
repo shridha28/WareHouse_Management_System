@@ -1,5 +1,6 @@
 package com.warehouse.dao.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -24,6 +25,8 @@ public class ProductDao {
 	private String id;
 	
 	private String name;
+	
+	private BigDecimal price;
 	
 	private List<PArticleDao> articles;
 
