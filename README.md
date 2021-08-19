@@ -12,17 +12,21 @@ The WMS (Warehouse Management System) is an application developed in SpringBoot 
 -Sonar Qube for Code Analysis <br />
 
 ## APIs
-Products:
 
-POST - /api/products -> Import products by uploading a JSON file.
-GET -  /api/products -> Get all products.
-DELETE - /api/products/{productId} -> Delete a product
-GET -  /api/products/{productId} -> Get a product
+**Application and MongoDB health check:** <br />
+/actuator/health 
 
-Inventory:
+**Products:**
 
-POST - /api/articles -> Import articles by uploading a JSON file.
-GET -  /api/articles -> Get all articles.
+POST - /api/products -> Import products by uploading a JSON file. <br />
+GET -  /api/products -> Get all products. <br />
+DELETE - /api/products/{productId} -> Delete a product <br />
+GET -  /api/products/{productId} -> Get a product <br />
+
+**Inventory:**
+
+POST - /api/articles -> Import articles by uploading a JSON file. <br />
+GET -  /api/articles -> Get all articles. <br />
 
 ## Launch
 Steps to run the application
