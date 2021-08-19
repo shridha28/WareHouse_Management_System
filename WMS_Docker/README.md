@@ -1,11 +1,11 @@
-Docker readme
+**Docker readme
 
 This folder contains 
 1. Dockerfile - which is used to build the spring boot application. This can also be used as a standalone application but will still need mongo db on your local host machine to work
 
 - In order to install mongodb on your local, follow the below instructions:
 To locally install mongodb, follow the link - https://docs.mongodb.com/guides/server/install/
- Run the following commands
+ Run the following commands <br />
   a) show dbs -> Displays databases <br />
   b) use admin -> Selects database admin <br /> 
   c) db.createUser(    <br />
