@@ -31,10 +31,4 @@ GET -  /api/articles -> Get all articles. <br />
 ## Launch
 Steps to run the application
 
-1) Clone the repository
-2) In local machine, run a local instance of mongo server(27017) and create two databases
-  - wmsdb for default profile
-  - wmsdbtest for test profile
-3) Update the application.properties and application-test.properties with username and password
-4) Run mvn install . A jar will be created in the target folder.
-5) Run the jar using command -> java -jar WMS-1.0.0.jar
+Please refer to the link [steps] (https://github.com/shridha28/WareHouse_Management_System/blob/master/WMS_Docker/README.md) to run the application locally/docker container.
