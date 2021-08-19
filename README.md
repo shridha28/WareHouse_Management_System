@@ -31,4 +31,4 @@ GET -  /api/articles -> Get all articles. <br />
 ## Launch
 Steps to run the application
 
-Please refer to the link [steps] (https://github.com/shridha28/WareHouse_Management_System/blob/master/WMS_Docker/README.md) to run the application locally/docker container.
+Please refer to the link [steps](https://github.com/shridha28/WareHouse_Management_System/blob/master/WMS_Docker/README.md) to run the application locally/docker container.
