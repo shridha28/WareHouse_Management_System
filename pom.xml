@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.warehouse.app</groupId>
-	<artifactId>WMS</artifactId>
+	<artifactId>wms</artifactId>
 	<version>1.0.0</version>
 	<name>WMS</name>
 	<description>Software Application for inventory and product management</description>
