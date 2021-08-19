@@ -61,7 +61,7 @@ public class InventoryController {
 		  inventoryService.saveArticles(inventory.getInventory());
 		
 		logger.info("Successfully imported articles in the Inventory Collection");
-		return new ResponseEntity<String>("Successfully imported articles into the inventory.",HttpStatus.CREATED);
+		return new ResponseEntity<>("Successfully imported articles into the inventory.",HttpStatus.CREATED);
 	}
 
    /*

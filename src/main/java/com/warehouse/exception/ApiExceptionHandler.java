@@ -28,9 +28,9 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(ProductNotFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public ResponseEntity<ErrorResponse> handleProductNotFoundException(
-			ProductNotFoundException productNotFoundException, WebRequest request) {
-		return buildErrorResponse(productNotFoundException, productNotFoundException.getMessage(), HttpStatus.NOT_FOUND,
-				request);
+			ProductNotFoundException productNotFoundException) {
+		return buildErrorResponse(productNotFoundException, productNotFoundException.getMessage(),
+				HttpStatus.NOT_FOUND);
 	}
 
 	/*
@@ -47,7 +47,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<ErrorResponse> handleInvalidJsonFileException(
 			InvalidJsonFileException invalidJsonFileException, WebRequest request) {
 		return buildErrorResponse(invalidJsonFileException, invalidJsonFileException.getMessage(),
-				HttpStatus.BAD_REQUEST, request);
+				HttpStatus.BAD_REQUEST);
 	}
 
 	/*
@@ -61,10 +61,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	 */
 	@ExceptionHandler(OutOfStockException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ResponseEntity<ErrorResponse> handleOutOfStockException(OutOfStockException outOfStockException,
-			WebRequest request) {
-		return buildErrorResponse(outOfStockException, outOfStockException.getMessage(),
-				HttpStatus.BAD_REQUEST, request);
+	public ResponseEntity<ErrorResponse> handleOutOfStockException(OutOfStockException outOfStockException) {
+		return buildErrorResponse(outOfStockException, outOfStockException.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 
 	/*
@@ -80,8 +78,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	 * 
 	 * @return ResponseEntity responseEntitty with ErrorResponse
 	 */
-	private ResponseEntity<ErrorResponse> buildErrorResponse(Exception exception, String message, HttpStatus httpStatus,
-			WebRequest request) {
+	private ResponseEntity<ErrorResponse> buildErrorResponse(Exception exception, String message,
+			HttpStatus httpStatus) {
 		ErrorResponse errorResponse = new ErrorResponse(httpStatus.value(), exception.getMessage());
 		return ResponseEntity.status(httpStatus).body(errorResponse);
 	}
