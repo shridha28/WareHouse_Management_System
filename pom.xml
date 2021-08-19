@@ -52,7 +52,7 @@
 				</plugins>
 			</build>
 		</profile>
-	</profles>
+	</profiles>
 	
 	<dependencies>
 		<dependency>
