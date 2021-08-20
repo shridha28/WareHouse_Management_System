@@ -17,7 +17,7 @@ services:
 
   wmsapp:
     container_name: wmsapp
-    image: shridha/wmsapp:1.0.0
+    image: shridha/wmsapp:1.0.1
     volumes:
       - ./production-logs:/opt/app/logs
       - ./src/main/resources/application-prod.properties:/opt/app/application-prod.properties
