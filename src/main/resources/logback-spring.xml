@@ -60,19 +60,19 @@
     </springProfile>
     
     <springProfile name="prod">
-   		 <logger name="com.warehouse" level="error" additivity="false">
+   		 <logger name="com.warehouse" level="info" additivity="false">
         	<appender-ref ref="RollingFile" />
     	</logger>
     </springProfile>
 
    <springProfile name="prod">
-   		 <logger name="org.mongodb" level="error" additivity="false">
+   		 <logger name="org.mongodb" level="info" additivity="false">
         	<appender-ref ref="RollingFile" />
     	</logger>
     </springProfile>
    
    <springProfile name="prod">
-   		 <logger name="org.springframework" level="error" additivity="false">
+   		 <logger name="org.springframework" level="info" additivity="false">
         	<appender-ref ref="RollingFile" />
     	</logger>
     </springProfile> 
