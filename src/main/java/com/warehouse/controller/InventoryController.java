@@ -32,9 +32,14 @@ public class InventoryController {
 
 	private static final Logger logger = LoggerFactory.getLogger(InventoryController.class);
 	
-	@Autowired
+	
 	private InventoryService inventoryService;
-
+	
+	@Autowired
+	public InventoryController(InventoryService inventoryService) {
+		this.inventoryService = inventoryService;
+	}
+	
    /*
 	* End Point to import articles in the database
 	* 

@@ -28,15 +28,19 @@ import com.warehouse.repo.ProductRepository;
 public class ProductService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
-
-	@Autowired
+	
 	private ProductMapper mapper;
-
-	@Autowired
+	
 	private ProductRepository productRepo;
-
-	@Autowired
+	
 	private InventoryRepository articlesRepo;
+	
+	@Autowired
+	public ProductService(ProductMapper mapper, ProductRepository productRepo, InventoryRepository articlesRepo) {
+		this.mapper = mapper;
+		this.productRepo = productRepo;
+		this.articlesRepo = articlesRepo;
+	}
 
 
    /*
@@ -91,10 +95,7 @@ public class ProductService {
 			product.get().getArticles().forEach(article -> {
 				Optional<ArticleDao> articleDao = articlesRepo.findById(article.getArtId());
 				if(articleDao.isPresent() && article.getAmountOf()<= articleDao.get().getStock()) {
-					if(articleDao.get().getStock()-article.getAmountOf() < 0)
-						articleDao.get().setStock(0);
-					else 
-						articleDao.get().setStock(articleDao.get().getStock()-article.getAmountOf());
+					 articleDao.get().setStock(articleDao.get().getStock()-article.getAmountOf());
 				}
 				else {
 					logger.error("Insufficient stocks found with articleId: {} for product :{}",article.getArtId(),productId);

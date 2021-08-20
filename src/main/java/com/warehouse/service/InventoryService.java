@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 
 import com.warehouse.dao.model.ArticleDao;
 import com.warehouse.mapper.InventoryMapper;
+import com.warehouse.mapper.ProductMapper;
 import com.warehouse.model.IArticleModel;
 import com.warehouse.repo.InventoryRepository;
+import com.warehouse.repo.ProductRepository;
 
 
 /**
@@ -28,12 +30,17 @@ public class InventoryService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(InventoryService.class);
 
-	@Autowired
+	
 	InventoryMapper mapper;
 
-	@Autowired
+	
 	InventoryRepository inventoryRepository;
-
+	
+	@Autowired
+	public InventoryService(InventoryMapper mapper, InventoryRepository inventoryRepository) {
+		this.mapper = mapper;
+		this.inventoryRepository = inventoryRepository;
+	}
 
    /*
 	* Method to save articles
