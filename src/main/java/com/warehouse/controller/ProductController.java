@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.warehouse.exception.InvalidJsonFileException;
 import com.warehouse.model.Product;
 import com.warehouse.model.Products;
+import com.warehouse.service.InventoryService;
 import com.warehouse.service.ProductService;
 
 
@@ -36,8 +37,12 @@ public class ProductController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
-	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	public ProductController(ProductService productService) {
+		this.productService = productService;
+	}
 	
 	/*
 	 * End Point to import products in the database
